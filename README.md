@@ -64,7 +64,18 @@ docker build -t app-manager-full .
 After building:
 
 ```bash
-docker run -d -p 80:80 -p 8080:8080 app-manager-full
+docker run -d \
+  -p 80:80 -p 443:443 \
+  --name app-manager-full-container \
+  -v /etc/letsencrypt:/etc/letsencrypt:ro \
+  -v /var/lib/letsencrypt:/var/lib/letsencrypt:ro \
+  -e DB_PASSWORD="pealse_replace_to_your_db_password" \
+  -e CORS_ALLOWED_ORIGINS="https://application-manager.qbitlc.com" \
+  -e APP_JWT_SECRET="pealse_replace_to_jour_jwt_secret" \
+  -e APP_JWT_ISSUER_URI="https://application-manager.qbitlc.com/app-manager" \
+  -e API_URL="https://application-manager.qbitlc.com/app-manager/api" \
+  app-manager-full:latest
+
 ```
 
 👉

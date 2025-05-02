@@ -79,7 +79,7 @@ docker run -d \
 ```
 
 👉
-- Your frontend will be available on port **80**
+- Your frontend will be available on port **443**
 - Your backend will be available on port **8080**
 
 ---
@@ -124,7 +124,7 @@ chmod +x build-all.sh
 
 # 📢 Notes
 
-- Ensure ports **80** and **8080** are open in your firewall.
+- Ensure ports **443** and **8080** are open in your firewall.
 - Verify enough disk space for building Node.js and Maven dependencies.
 
 ---
